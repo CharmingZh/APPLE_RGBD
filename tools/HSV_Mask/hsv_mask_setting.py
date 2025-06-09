@@ -106,7 +106,6 @@ class HSVBlock(QWidget):
 
 class HSVFilterApp(QWidget):
     def __init__(self):
-
         super().__init__()
         self.setWindowTitle("HSV 阈值调节工具")
         self.setMinimumSize(1400, 800)
@@ -114,6 +113,12 @@ class HSVFilterApp(QWidget):
 
         self.image = None
         self.hsv_blocks = []
+
+        # Define ROI coordinates
+        self.roi_x_min = 820
+        self.roi_x_max = 1360
+        self.roi_y_min = 100
+        self.roi_y_max = 980
 
         # 图像区域
         self.original_label = QLabel("原图")
@@ -166,8 +171,8 @@ class HSVFilterApp(QWidget):
     def load_image(self):
         file_path, _ = QFileDialog.getOpenFileName(self, "选择图像", "", "Images (*.png *.jpg *.jpeg *.bmp *.tiff)")
         if file_path:
-            self.image = cv2.imread(file_path)
-            self.update_mask()
+            original_image = cv2.imread(file_path)
+            self.process_and_set_image(original_image)
 
     def dragEnterEvent(self, event):
         if event.mimeData().hasUrls():
@@ -177,15 +182,27 @@ class HSVFilterApp(QWidget):
         for url in event.mimeData().urls():
             file_path = url.toLocalFile()
             if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff')):
-                self.image = cv2.imread(file_path)
-                self.update_mask()
+                original_image = cv2.imread(file_path)
+                self.process_and_set_image(original_image)
                 break
+
+    def process_and_set_image(self, img):
+        if img is None:
+            return
+
+        # Create a black image of the same size as the original
+        black_image = np.zeros_like(img)
+
+        # Copy the ROI from the original image to the black image
+        black_image[self.roi_y_min:self.roi_y_max, self.roi_x_min:self.roi_x_max] = \
+            img[self.roi_y_min:self.roi_y_max, self.roi_x_min:self.roi_x_max]
+
+        self.image = black_image
+        self.update_mask()
 
     def update_mask(self):
         if self.image is None:
             return
-
-
 
         hsv = cv2.cvtColor(self.image, cv2.COLOR_BGR2HSV)
         mask_total = np.zeros(hsv.shape[:2], dtype=np.uint8)
