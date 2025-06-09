@@ -1,0 +1,982 @@
+
+[toc]
+    \1 # General
+    \2 # Detailed
+
+# General
+
+C:\Users\JmZha\.conda\envs\APPLE_RGBD\python.exe C:\Users\JmZha\PycharmProjects\APPLE_RGBD\tools.py
+子目录: recording_20241127-102259
+子目录: recording_20241127-104451
+子目录: recording_20241127-105900
+子目录: recording_20241127-111205
+子目录: recording_20241127-111757
+子目录: recording_20241127-112557
+子目录: recording_20241127-113010
+子目录: recording_20241127-113434
+子目录: recording_20241127-155127
+子目录: recording_20241127-155416
+子目录: recording_20241127-155950
+子目录: recording_20241127-162410
+子目录: recording_20241127-162738
+子目录: recording_20241127-162818
+子目录: recording_20241127-162819
+子目录: recording_20241127-162841
+子目录: recording_20241127-163010
+子目录: recording_20241127-163819
+子目录: recording_20241127-165603
+子目录: recording_20241127-165942
+子目录: recording_20241127-170700
+子目录: recording_20241127-171409
+子目录: recording_20241127-171710
+子目录: recording_20241127-171950
+子目录: recording_20241127-172149
+子目录: recording_20241127-172507
+子目录: recording_20241127-172735
+子目录: recording_20241127-174849
+子目录: recording_20241127-175126
+子目录: recording_20241127-175355
+子目录: recording_20241127-175615
+子目录: recording_20241127-175835
+子目录: recording_20241127-180159
+子目录: recording_20241127-180449
+子目录: recording_20241202-153221
+子目录: recording_20241202-153735
+子目录: recording_20241202-154004
+子目录: recording_20241202-154249
+子目录: recording_20241202-154522
+子目录: recording_20241202-154957
+子目录: recording_20241202-155137
+子目录: recording_20241202-155356
+子目录: recording_20241202-155557
+子目录: recording_20241202-162033
+子目录: recording_20241202-162326
+子目录: recording_20241202-162603
+子目录: recording_20241202-162818
+子目录: recording_20241202-163052
+子目录: recording_20241202-163314
+子目录: recording_20241202-163456
+子目录: recording_20241202-163749
+子目录: recording_20241202-164038
+子目录: recording_20241202-164246
+子目录: recording_20241202-171732
+子目录: recording_20241202-171943
+子目录: recording_20241202-172149
+子目录: recording_20241202-172303
+子目录: recording_20241202-172501
+子目录: recording_20241202-172718
+子目录: recording_20241202-172828
+子目录: recording_20241202-173058
+子目录: recording_20241202-173336
+子目录: recording_20241213-161439
+子目录: recording_20241213-161651
+子目录: recording_20241213-161850
+子目录: recording_20241213-162129
+子目录: recording_20241213-162442
+子目录: recording_20241213-162713
+子目录: recording_20241213-162847
+子目录: recording_20241213-163222
+子目录: recording_20241213-163515
+子目录: recording_20241213-163928
+子目录: recording_20241213-164205
+子目录: recording_20241213-164443
+子目录: recording_20241213-164634
+子目录: recording_20241213-164905
+子目录: recording_20241213-165114
+子目录: recording_20241217-161748
+子目录: recording_20241217-162009
+子目录: recording_20241217-162355
+子目录: recording_20241217-162645
+子目录: recording_20241217-162917
+子目录: recording_20241217-163123
+子目录: recording_20241217-163314
+子目录: recording_20241217-163511
+子目录: recording_20241217-163706
+子目录: recording_20241217-163837
+子目录: recording_20241217-164033
+子目录: recording_20241217-164224
+子目录: recording_20241218-105906
+子目录: recording_20241218-110128
+子目录: recording_20241218-110334
+子目录: recording_20241218-110521
+子目录: recording_20241218-110757
+子目录: recording_20241218-111031
+子目录: recording_20241218-111207
+子目录: recording_20241218-111435
+子目录: recording_20241218-111709
+子目录: recording_20241218-111851
+子目录: recording_20241218-112052
+子目录: recording_20241218-112400
+子目录: recording_20241218-144726
+子目录: recording_20241218-144938
+子目录: recording_20241218-145152
+子目录: recording_20241218-145300
+子目录: recording_20241218-145526
+子目录: recording_20241218-145717
+子目录: recording_20241218-145822
+子目录: recording_20241218-150024
+子目录: recording_20241218-150210
+子目录: recording_20241218-150322
+子目录: recording_20241218-150519
+子目录: recording_20241218-150700
+子目录: recording_20241218-155323
+子目录: recording_20241218-155549
+子目录: recording_20241218-155747
+子目录: recording_20241218-155908
+子目录: recording_20241218-160101
+子目录: recording_20241218-160258
+子目录: recording_20241218-160356
+子目录: recording_20241218-160554
+子目录: recording_20241218-160748
+子目录: recording_20241218-160840
+子目录: recording_20241218-161043
+子目录: recording_20241218-161226
+子目录: recording_20241219-103316
+子目录: recording_20241219-103512
+子目录: recording_20241219-103721
+子目录: recording_20241219-103842
+子目录: recording_20241219-104038
+子目录: recording_20241219-104221
+子目录: recording_20241219-104318
+子目录: recording_20241219-104521
+子目录: recording_20241219-104655
+子目录: recording_20241219-104801
+子目录: recording_20241219-105030
+子目录: recording_20241219-105234
+子目录: recording_20241219-105337
+子目录: recording_20241219-105524
+子目录: recording_20241219-105732
+子目录: recording_20241219-110252
+子目录: recording_20241219-110445
+子目录: recording_20241219-110655
+子目录: recording_20241219-144700
+子目录: recording_20241219-144909
+子目录: recording_20241219-145108
+子目录: recording_20241219-145212
+子目录: recording_20241219-145411
+子目录: recording_20241219-145616
+子目录: recording_20241219-145802
+子目录: recording_20241219-150008
+子目录: recording_20241219-150154
+子目录: recording_20241219-150323
+子目录: recording_20241219-150840
+子目录: recording_20241219-151045
+子目录: recording_20241219-155027
+子目录: recording_20241219-155234
+子目录: recording_20241219-155628
+子目录: recording_20241219-155743
+子目录: recording_20241219-155938
+子目录: recording_20241219-160119
+子目录: recording_20241219-160231
+子目录: recording_20241219-160418
+子目录: recording_20241219-160604
+子目录: recording_20250107-112105
+子目录: recording_20250107-112504
+子目录: recording_20250107-112736
+子目录: recording_20250107-112939
+子目录: recording_20250107-113146
+子目录: recording_20250107-113338
+子目录: recording_20250107-113506
+子目录: recording_20250107-113722
+子目录: recording_20250107-113952
+子目录: recording_20250107-114211
+子目录: recording_20250107-114410
+子目录: recording_20250107-114620
+子目录: recording_20250107-151845
+子目录: recording_20250107-160338
+子目录: recording_20250107-160531
+子目录: recording_20250107-160719
+子目录: recording_20250107-160928
+子目录: recording_20250107-161139
+子目录: recording_20250107-161332
+子目录: recording_20250107-161505
+子目录: recording_20250107-161658
+子目录: recording_20250107-161852
+子目录: recording_20250107-162139
+子目录: recording_20250107-162344
+子目录: recording_20250107-162525
+子目录: recording_20250107-175040
+子目录: recording_20250107-175246
+子目录: recording_20250107-175438
+子目录: recording_20250107-175537
+子目录: recording_20250107-175758
+子目录: recording_20250107-175936
+子目录: recording_20250107-180049
+子目录: recording_20250107-180256
+子目录: recording_20250107-180458
+子目录: recording_20250107-180705
+子目录: recording_20250107-180852
+子目录: recording_20250107-181046
+子目录: recording_20250107-181203
+子目录: recording_20250107-181411
+子目录: recording_20250107-181602
+子目录: recording_20250107-181745
+子目录: recording_20250107-181933
+子目录: recording_20250107-182120
+子目录: recording_20250107-182312
+子目录: recording_20250107-182503
+子目录: recording_20250107-182744
+子目录: recording_20250107-182845
+子目录: recording_20250107-183032
+子目录: recording_20250107-183211
+子目录: recording_20250107-183332
+子目录: recording_20250107-183526
+子目录: recording_20250107-183759
+子目录: recording_20250107-183958
+子目录: recording_20250107-184205
+子目录: recording_20250107-184356
+子目录: recording_20250107-184500
+子目录: recording_20250107-184648
+子目录: recording_20250107-184859
+子目录: recording_20250107-184958
+子目录: recording_20250107-185144
+子目录: recording_20250107-185322
+
+进程已结束，退出代码为 0
+
+
+# Detailed
+
+子目录: recording_20241127-102259
+  .avi: 1
+  .npy: 424
+  .tiff: 424
+子目录: recording_20241127-104451
+  .avi: 1
+  .npy: 773
+  .tiff: 773
+子目录: recording_20241127-105900
+  .avi: 1
+  .npy: 745
+  .tiff: 745
+子目录: recording_20241127-111205
+  .avi: 1
+  .npy: 723
+  .tiff: 723
+子目录: recording_20241127-111757
+  .avi: 1
+  .npy: 601
+  .tiff: 601
+子目录: recording_20241127-112557
+  .avi: 1
+  .npy: 651
+  .tiff: 651
+子目录: recording_20241127-113010
+  .avi: 1
+  .npy: 545
+  .tiff: 545
+子目录: recording_20241127-113434
+  .avi: 1
+  .npy: 721
+  .tiff: 721
+子目录: recording_20241127-155127
+  .avi: 1
+  .npy: 626
+  .tiff: 626
+子目录: recording_20241127-155416
+  .avi: 1
+  .npy: 583
+  .tiff: 583
+子目录: recording_20241127-155950
+  .avi: 1
+  .npy: 716
+  .tiff: 716
+子目录: recording_20241127-162410
+  .avi: 1
+  .npy: 813
+  .tiff: 813
+子目录: recording_20241127-162738
+  .avi: 1
+  .npy: 736
+  .tiff: 736
+子目录: recording_20241127-162818
+  .avi: 1
+  .npy: 12
+  .tiff: 12
+子目录: recording_20241127-162819
+  .avi: 1
+  .npy: 533
+  .tiff: 533
+子目录: recording_20241127-162841
+  .avi: 1
+  .npy: 54
+  .tiff: 54
+子目录: recording_20241127-163010
+  .avi: 1
+  .npy: 97
+  .tiff: 97
+子目录: recording_20241127-163819
+  .avi: 1
+  .npy: 293
+  .tiff: 293
+子目录: recording_20241127-165603
+  .avi: 1
+  .npy: 568
+  .tiff: 568
+子目录: recording_20241127-165942
+  .avi: 1
+  .npy: 244
+  .tiff: 244
+子目录: recording_20241127-170700
+  .avi: 1
+  .npy: 269
+  .tiff: 269
+子目录: recording_20241127-171409
+  .avi: 1
+  .npy: 595
+  .tiff: 595
+子目录: recording_20241127-171710
+  .avi: 1
+  .npy: 460
+  .tiff: 460
+子目录: recording_20241127-171950
+  .avi: 1
+  .npy: 225
+  .tiff: 225
+子目录: recording_20241127-172149
+  .avi: 1
+  .npy: 359
+  .tiff: 359
+子目录: recording_20241127-172507
+  .avi: 1
+  .npy: 378
+子目录: recording_20241127-172735
+  .avi: 1
+  .npy: 259
+子目录: recording_20241127-174849
+  .avi: 2
+  .npy: 573
+子目录: recording_20241127-175126
+  .avi: 2
+  .npy: 528
+子目录: recording_20241127-175355
+  .avi: 2
+  .npy: 430
+子目录: recording_20241127-175615
+  .avi: 2
+  .npy: 306
+子目录: recording_20241127-175835
+  .avi: 2
+  .npy: 556
+子目录: recording_20241127-180159
+  .avi: 2
+  .npy: 440
+子目录: recording_20241127-180449
+  .avi: 2
+  .npy: 324
+子目录: recording_20241202-153221
+  .avi: 1
+  .npy: 348
+子目录: recording_20241202-153735
+  .avi: 1
+  .npy: 220
+子目录: recording_20241202-154004
+  .avi: 1
+  .npy: 177
+子目录: recording_20241202-154249
+  .avi: 1
+  .npy: 294
+子目录: recording_20241202-154522
+  .avi: 1
+  .npy: 236
+子目录: recording_20241202-154957
+  .avi: 1
+  .npy: 248
+子目录: recording_20241202-155137
+  .avi: 1
+  .npy: 293
+子目录: recording_20241202-155356
+  .avi: 1
+  .npy: 195
+子目录: recording_20241202-155557
+  .avi: 1
+  .npy: 141
+子目录: recording_20241202-162033
+  .avi: 1
+  .npy: 276
+子目录: recording_20241202-162326
+  .avi: 1
+  .npy: 207
+子目录: recording_20241202-162603
+  .avi: 1
+  .npy: 181
+子目录: recording_20241202-162818
+  .avi: 1
+  .npy: 273
+子目录: recording_20241202-163052
+  .avi: 1
+  .npy: 211
+子目录: recording_20241202-163314
+  .avi: 1
+  .npy: 144
+子目录: recording_20241202-163456
+  .avi: 1
+  .npy: 276
+子目录: recording_20241202-163749
+  .avi: 1
+  .npy: 268
+子目录: recording_20241202-164038
+  .avi: 1
+  .npy: 200
+子目录: recording_20241202-164246
+  .avi: 1
+  .npy: 307
+子目录: recording_20241202-171732
+  .avi: 1
+  .npy: 285
+子目录: recording_20241202-171943
+  .avi: 1
+  .npy: 236
+子目录: recording_20241202-172149
+  .avi: 1
+  .npy: 162
+子目录: recording_20241202-172303
+  .avi: 1
+  .npy: 275
+子目录: recording_20241202-172501
+  .avi: 1
+  .npy: 202
+子目录: recording_20241202-172718
+  .avi: 1
+  .npy: 150
+子目录: recording_20241202-172828
+  .avi: 1
+  .npy: 272
+子目录: recording_20241202-173058
+  .avi: 1
+  .npy: 213
+子目录: recording_20241202-173336
+  .avi: 1
+  .npy: 171
+子目录: recording_20241213-161439
+  .avi: 1
+  .npy: 291
+子目录: recording_20241213-161651
+  .avi: 1
+  .npy: 210
+子目录: recording_20241213-161850
+  .avi: 1
+  .npy: 244
+子目录: recording_20241213-162129
+  .avi: 1
+  .npy: 292
+子目录: recording_20241213-162442
+  .avi: 1
+  .npy: 269
+子目录: recording_20241213-162713
+  .avi: 1
+  .npy: 152
+子目录: recording_20241213-162847
+  .avi: 1
+  .npy: 286
+子目录: recording_20241213-163222
+  .avi: 1
+  .npy: 233
+子目录: recording_20241213-163515
+  .avi: 1
+  .npy: 185
+子目录: recording_20241213-163928
+  .avi: 1
+  .npy: 334
+子目录: recording_20241213-164205
+  .avi: 1
+  .npy: 195
+子目录: recording_20241213-164443
+  .avi: 1
+  .npy: 152
+子目录: recording_20241213-164634
+  .avi: 1
+  .npy: 293
+子目录: recording_20241213-164905
+  .avi: 1
+  .npy: 231
+子目录: recording_20241213-165114
+  .avi: 1
+  .npy: 150
+子目录: recording_20241217-161748
+  .avi: 1
+  .npy: 428
+子目录: recording_20241217-162009
+  .avi: 1
+  .npy: 232
+子目录: recording_20241217-162355
+  .avi: 1
+  .npy: 157
+子目录: recording_20241217-162645
+  .avi: 1
+  .npy: 293
+子目录: recording_20241217-162917
+  .avi: 1
+  .npy: 217
+子目录: recording_20241217-163123
+  .avi: 1
+  .npy: 149
+子目录: recording_20241217-163314
+  .avi: 1
+  .npy: 309
+子目录: recording_20241217-163511
+  .avi: 1
+  .npy: 204
+子目录: recording_20241217-163706
+  .avi: 1
+  .npy: 142
+子目录: recording_20241217-163837
+  .avi: 1
+  .npy: 247
+子目录: recording_20241217-164033
+  .avi: 1
+  .npy: 175
+子目录: recording_20241217-164224
+  .avi: 1
+  .npy: 154
+子目录: recording_20241218-105906
+  .avi: 1
+  .npy: 278
+子目录: recording_20241218-110128
+  .avi: 1
+  .npy: 192
+子目录: recording_20241218-110334
+  .avi: 1
+  .npy: 177
+子目录: recording_20241218-110521
+  .avi: 1
+  .npy: 290
+子目录: recording_20241218-110757
+  .avi: 1
+  .npy: 210
+子目录: recording_20241218-111031
+  .avi: 1
+  .npy: 133
+子目录: recording_20241218-111207
+  .avi: 1
+  .npy: 209
+子目录: recording_20241218-111435
+  .avi: 1
+  .npy: 237
+子目录: recording_20241218-111709
+  .avi: 1
+  .npy: 149
+子目录: recording_20241218-111851
+  .avi: 1
+  .npy: 266
+子目录: recording_20241218-112052
+  .avi: 1
+  .npy: 189
+子目录: recording_20241218-112400
+  .avi: 1
+  .npy: 229
+子目录: recording_20241218-144726
+  .avi: 1
+  .npy: 272
+子目录: recording_20241218-144938
+  .avi: 1
+  .npy: 200
+子目录: recording_20241218-145152
+  .avi: 1
+  .npy: 155
+子目录: recording_20241218-145300
+  .avi: 1
+  .npy: 275
+子目录: recording_20241218-145526
+  .avi: 1
+  .npy: 183
+子目录: recording_20241218-145717
+  .avi: 1
+  .npy: 159
+子目录: recording_20241218-145822
+  .avi: 1
+  .npy: 278
+子目录: recording_20241218-150024
+  .avi: 1
+  .npy: 180
+子目录: recording_20241218-150210
+  .avi: 1
+  .npy: 149
+子目录: recording_20241218-150322
+  .avi: 1
+  .npy: 289
+子目录: recording_20241218-150519
+  .avi: 1
+  .npy: 197
+子目录: recording_20241218-150700
+  .avi: 1
+  .npy: 152
+子目录: recording_20241218-155323
+  .avi: 1
+  .npy: 267
+子目录: recording_20241218-155549
+  .avi: 1
+  .npy: 211
+子目录: recording_20241218-155747
+  .avi: 1
+  .npy: 150
+子目录: recording_20241218-155908
+  .avi: 1
+  .npy: 301
+子目录: recording_20241218-160101
+  .avi: 1
+  .npy: 187
+子目录: recording_20241218-160258
+  .avi: 1
+  .npy: 151
+子目录: recording_20241218-160356
+  .avi: 1
+  .npy: 288
+子目录: recording_20241218-160554
+  .avi: 1
+  .npy: 219
+子目录: recording_20241218-160748
+  .avi: 1
+  .npy: 136
+子目录: recording_20241218-160840
+  .avi: 1
+  .npy: 357
+子目录: recording_20241218-161043
+  .avi: 1
+  .npy: 211
+子目录: recording_20241218-161226
+  .avi: 1
+  .npy: 162
+子目录: recording_20241219-103316
+  .avi: 1
+  .npy: 294
+子目录: recording_20241219-103512
+  .avi: 1
+  .npy: 207
+子目录: recording_20241219-103721
+  .avi: 1
+  .npy: 160
+子目录: recording_20241219-103842
+  .avi: 1
+  .npy: 296
+子目录: recording_20241219-104038
+  .avi: 1
+  .npy: 188
+子目录: recording_20241219-104221
+  .avi: 1
+  .npy: 165
+子目录: recording_20241219-104318
+  .avi: 1
+  .npy: 510
+子目录: recording_20241219-104521
+  .avi: 1
+  .npy: 175
+子目录: recording_20241219-104655
+  .avi: 1
+  .npy: 150
+子目录: recording_20241219-104801
+  .avi: 1
+  .npy: 313
+子目录: recording_20241219-105030
+  .avi: 1
+  .npy: 205
+子目录: recording_20241219-105234
+  .avi: 1
+  .npy: 180
+子目录: recording_20241219-105337
+  .avi: 1
+  .npy: 268
+子目录: recording_20241219-105524
+  .avi: 1
+  .npy: 160
+子目录: recording_20241219-105732
+  .avi: 1
+  .npy: 155
+子目录: recording_20241219-110252
+  .avi: 1
+  .npy: 274
+子目录: recording_20241219-110445
+  .avi: 1
+  .npy: 215
+子目录: recording_20241219-110655
+  .avi: 1
+  .npy: 158
+子目录: recording_20241219-144700
+  .avi: 1
+  .npy: 368
+子目录: recording_20241219-144909
+  .avi: 1
+  .npy: 199
+子目录: recording_20241219-145108
+  .avi: 1
+  .npy: 155
+子目录: recording_20241219-145212
+  .avi: 1
+  .npy: 276
+子目录: recording_20241219-145411
+  .avi: 1
+  .npy: 143
+子目录: recording_20241219-145616
+  .avi: 1
+  .npy: 151
+子目录: recording_20241219-145802
+  .avi: 1
+  .npy: 275
+子目录: recording_20241219-150008
+  .avi: 1
+  .npy: 216
+子目录: recording_20241219-150154
+  .avi: 1
+  .npy: 157
+子目录: recording_20241219-150323
+  .avi: 1
+  .npy: 272
+子目录: recording_20241219-150840
+  .avi: 1
+  .npy: 203
+子目录: recording_20241219-151045
+  .avi: 1
+  .npy: 165
+子目录: recording_20241219-155027
+  .avi: 1
+  .npy: 337
+子目录: recording_20241219-155234
+  .avi: 1
+  .npy: 201
+子目录: recording_20241219-155628
+  .avi: 1
+  .npy: 160
+子目录: recording_20241219-155743
+  .avi: 1
+  .npy: 282
+子目录: recording_20241219-155938
+  .avi: 1
+  .npy: 237
+子目录: recording_20241219-160119
+  .avi: 1
+  .npy: 162
+子目录: recording_20241219-160231
+  .avi: 1
+  .npy: 287
+子目录: recording_20241219-160418
+  .avi: 1
+  .npy: 199
+子目录: recording_20241219-160604
+  .avi: 1
+  .npy: 162
+子目录: recording_20250107-112105
+  .npy: 337
+  .png: 337
+  .tiff: 337
+子目录: recording_20250107-112504
+  .npy: 358
+  .png: 358
+  .tiff: 358
+子目录: recording_20250107-112736
+  .npy: 190
+  .png: 190
+  .tiff: 190
+子目录: recording_20250107-112939
+  .npy: 625
+  .png: 625
+  .tiff: 625
+子目录: recording_20250107-113146
+  .npy: 261
+  .png: 261
+  .tiff: 261
+子目录: recording_20250107-113338
+  .npy: 189
+  .png: 189
+  .tiff: 189
+子目录: recording_20250107-113506
+  .npy: 340
+  .png: 340
+  .tiff: 340
+子目录: recording_20250107-113722
+  .npy: 255
+  .png: 255
+  .tiff: 255
+子目录: recording_20250107-113952
+  .npy: 184
+  .png: 184
+  .tiff: 184
+子目录: recording_20250107-114211
+  .npy: 316
+  .png: 316
+  .tiff: 316
+子目录: recording_20250107-114410
+  .npy: 268
+  .png: 268
+  .tiff: 268
+子目录: recording_20250107-114620
+  .npy: 195
+  .png: 195
+  .tiff: 195
+子目录: recording_20250107-151845
+  .npy: 26
+  .png: 26
+  .tiff: 26
+子目录: recording_20250107-160338
+  .npy: 305
+  .png: 305
+  .tiff: 305
+子目录: recording_20250107-160531
+  .npy: 218
+  .png: 218
+  .tiff: 218
+子目录: recording_20250107-160719
+  .npy: 164
+  .png: 164
+  .tiff: 164
+子目录: recording_20250107-160928
+  .npy: 229
+  .png: 229
+  .tiff: 229
+子目录: recording_20250107-161139
+  .npy: 177
+  .png: 177
+  .tiff: 177
+子目录: recording_20250107-161332
+  .npy: 141
+  .png: 141
+  .tiff: 141
+子目录: recording_20250107-161505
+  .npy: 254
+  .png: 254
+  .tiff: 254
+子目录: recording_20250107-161658
+  .npy: 208
+  .png: 208
+  .tiff: 208
+子目录: recording_20250107-161852
+  .npy: 185
+  .png: 185
+  .tiff: 185
+子目录: recording_20250107-162139
+  .mp4: 1
+  .npy: 272
+  .png: 272
+  .tiff: 272
+子目录: recording_20250107-162344
+  .npy: 121
+  .png: 121
+  .tiff: 121
+子目录: recording_20250107-162525
+  .npy: 124
+  .png: 124
+  .tiff: 124
+子目录: recording_20250107-175040
+  .npy: 232
+  .png: 232
+  .tiff: 232
+子目录: recording_20250107-175246
+  .npy: 160
+  .png: 160
+  .tiff: 160
+子目录: recording_20250107-175438
+  .npy: 97
+  .png: 97
+  .tiff: 97
+子目录: recording_20250107-175537
+  .npy: 211
+  .png: 211
+  .tiff: 211
+子目录: recording_20250107-175758
+  .npy: 157
+  .png: 157
+  .tiff: 157
+子目录: recording_20250107-175936
+  .npy: 114
+  .png: 114
+  .tiff: 114
+子目录: recording_20250107-180049
+  .npy: 214
+  .png: 214
+  .tiff: 214
+子目录: recording_20250107-180256
+  .npy: 122
+  .png: 122
+  .tiff: 122
+子目录: recording_20250107-180458
+  .npy: 119
+  .png: 119
+  .tiff: 119
+子目录: recording_20250107-180705
+  .npy: 210
+  .png: 210
+  .tiff: 210
+子目录: recording_20250107-180852
+  .npy: 140
+  .png: 140
+  .tiff: 140
+子目录: recording_20250107-181046
+  .npy: 127
+  .png: 127
+  .tiff: 127
+子目录: recording_20250107-181203
+  .npy: 187
+  .png: 187
+  .tiff: 187
+子目录: recording_20250107-181411
+  .npy: 88
+  .png: 88
+  .tiff: 88
+子目录: recording_20250107-181602
+  .npy: 68
+  .png: 68
+  .tiff: 68
+子目录: recording_20250107-181745
+  .npy: 171
+  .png: 171
+子目录: recording_20250107-181933
+  .npy: 146
+  .png: 146
+子目录: recording_20250107-182120
+  .npy: 129
+  .png: 129
+子目录: recording_20250107-182312
+  .npy: 250
+  .png: 250
+子目录: recording_20250107-182503
+  .npy: 81
+  .png: 81
+子目录: recording_20250107-182744
+  .npy: 52
+  .png: 52
+子目录: recording_20250107-182845
+  .npy: 229
+  .png: 229
+子目录: recording_20250107-183032
+  .npy: 163
+  .png: 163
+子目录: recording_20250107-183211
+  .npy: 31
+  .png: 31
+子目录: recording_20250107-183332
+  .npy: 71
+  .png: 71
+子目录: recording_20250107-183526
+  .npy: 150
+  .png: 150
+子目录: recording_20250107-183759
+  .npy: 118
+  .png: 118
+子目录: recording_20250107-183958
+  .npy: 129
+  .png: 129
+子目录: recording_20250107-184205
+  .npy: 34
+  .png: 34
+子目录: recording_20250107-184356
+  .npy: 123
+  .png: 123
+子目录: recording_20250107-184500
+  .npy: 237
+  .png: 237
+子目录: recording_20250107-184648
+  .npy: 135
+  .png: 135
+子目录: recording_20250107-184859
+  .npy: 104
+  .png: 104
+子目录: recording_20250107-184958
+  .npy: 218
+  .png: 233
+子目录: recording_20250107-185144
+  .npy: 212
+  .png: 212
+子目录: recording_20250107-185322
+  .npy: 135
+  .png: 135
+
+进程已结束，退出代码为 0
