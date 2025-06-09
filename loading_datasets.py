@@ -10,7 +10,7 @@ datasets_path = [
     r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-161852",
     r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-162139",
     r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-162525",
-    r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-175040",
+    r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-175040",    # 苹果出现堆积
     r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-175246",
     r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-175537",
     r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-175758",
@@ -32,6 +32,6 @@ datasets_path = [
     r"C:\Users\JmZha\VSCode_Project\Datasets\Apple\recording_20250107-185322"
 ]
 
-speed_1_lst = [0, 5, 7, 9, 11, 14, 15, 17, 19, 20, 23, 25]
+speed_1_lst = [0, 5, 7, 11, 14, 15, 17, 19, 20, 23, 25] # [0, 5, 7, 9, 11, 14, 15, 17, 19, 20, 23, 25]
 speed_2_lst = [1, 3, 10, 12, 16, 18, 21, 26, 28]
 speed_3_lst = [2, 4, 6, 8, 13, 22, 24, 27]

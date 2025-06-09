@@ -2,10 +2,18 @@ from loading_datasets import datasets_path, speed_1_lst  # 可改为 speed_2_lst
 
 import os
 import re
-
 import cv2
-import numpy as np  # 导入 numpy
+import numpy as np
+# 引入scipy库来使用最高效的全局最优匹配算法（匈牙利算法）
+# 如果你的环境中没有安装，请运行: pip install scipy
+from scipy.optimize import linear_sum_assignment
 
+# ===================================================================
+# 全局开关: 设置为 True 来保存视频, 设置为 False 则不保存
+SAVE_VIDEO = False
+
+
+# ===================================================================
 
 def get_sorted_png_files(folder):
     """
@@ -25,141 +33,217 @@ def get_sorted_png_files(folder):
     return full_paths
 
 
-def visualize_images(image_paths, window_size=(1440, 810)):
+def visualize_images(image_paths, window_size=(1440, 810), save_video=False, output_path="output.mp4"):
     """
     使用 OpenCV 显示图像序列，应用 HSV 模板，并结合形态学去噪和连通分量分析。
-    同时会追踪并返回每个图像中保留下来的连通分量的信息。
+    实现跨帧连通分量颜色一致性追踪，并按要求显示累加计数器和自定义编号。
+    追踪逻辑已根据“两列从下向上运行”的特性进行优化。
+    新增功能: 可选择将可视化结果保存为视频。
     """
-    # 定义 ROI 区域
+    # ... (函数内部的其他变量定义保持不变) ...
+    # 定义感兴趣区域 (ROI)
     roi_x_min = 820
     roi_x_max = 1360
     roi_y_min = 100
     roi_y_max = 980
 
-    # 定义 HSV 模板
+    # 定义HSV颜色阈值
     lower_hsv = np.array([10, 0, 30])
     upper_hsv = np.array([30, 255, 255])
 
     # 定义形态学操作的核
-    # 3x3 或 5x5 的核通常效果不错，可以根据实际情况调整
     morph_kernel = np.ones((5, 5), np.uint8)
 
-    # 定义面积阈值，所有小于此面积的连通分量将被视为噪声并移除
-    min_noise_area_threshold = 1000
+    # 定义面积阈值
+    min_noise_area_threshold = 2750
 
-    # 存储每一帧的连通分量信息，如果你不需要返回这些信息，可以移除此变量
-    all_frames_components_info = []
+    # --- 追踪相关的变量 ---
+    tracked_objects = {}
+    next_unique_id = 0
+    global_component_counter = 0
+    initial_vertical_movement = 20
+    max_distance_for_tracking = 100
+    max_missed_frames = 5
+
+    # --- 自定义编号相关参数 ---
+    num_objects_per_column = 9
+    next_left_column_number = 1
+    next_right_column_number = num_objects_per_column + 1
+
+    # 预定义颜色
+    COLORS = [
+        (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0),
+        (0, 255, 255), (255, 0, 255), (128, 0, 0), (0, 128, 0),
+        (0, 0, 128), (128, 128, 0), (0, 128, 128), (128, 0, 128),
+        (64, 64, 64), (192, 192, 192)
+    ]
+    color_index = 0
+
+    # --- 视频录制设置 ---
+    video_writer = None
+    if save_video:
+        # 定义视频编码器和创建VideoWriter对象
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # 使用 MP4V 编码器 for .mp4 file
+        # 注意：帧大小必须与写入的帧（这里是resized）完全匹配
+        video_writer = cv2.VideoWriter(output_path, fourcc, 20.0, window_size)
+        if not video_writer.isOpened():
+            print(f"[错误] 无法打开视频文件进行写入: {output_path}")
+            save_video = False  # 如果无法打开，则禁用保存功能
+        else:
+            print(f"将开始录制视频到: {output_path}")
 
     for path in image_paths:
         img = cv2.imread(path)
         if img is None:
-            print(f"[ERROR] Failed to load: {path}")
+            print(f"[ERROR] 加载失败: {path}")
             continue
 
-        # 1. 创建一个全白的背景图像
-        processed_img = np.full(img.shape, 255, dtype=np.uint8)
+        # ... (图像处理和追踪逻辑保持不变) ...
+        roi_img = img[roi_y_min:roi_y_max, roi_x_min:roi_x_max]
+        roi_center_x_local = (roi_x_max - roi_x_min) / 2
 
-        # 2. 将 ROI 区域内的原始图像内容复制到 processed_img
-        h, w, _ = img.shape
-        roi_y_min_clamped = max(0, roi_y_min)
-        roi_y_max_clamped = min(h, roi_y_max)
-        roi_x_min_clamped = max(0, roi_x_min)
-        roi_x_max_clamped = min(w, roi_x_max)
+        hsv = cv2.cvtColor(roi_img, cv2.COLOR_BGR2HSV)
+        hsv_mask = cv2.inRange(hsv, lower_hsv, upper_hsv)
+        denoised_mask = cv2.morphologyEx(hsv_mask, cv2.MORPH_OPEN, morph_kernel, iterations=1)
+        num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(denoised_mask, connectivity=8)
 
-        if (roi_y_max_clamped > roi_y_min_clamped) and \
-                (roi_x_max_clamped > roi_x_min_clamped):
-            processed_img[roi_y_min_clamped:roi_y_max_clamped, \
-            roi_x_min_clamped:roi_x_max_clamped] = \
-                img[roi_y_min_clamped:roi_y_max_clamped, \
-                roi_x_min_clamped:roi_x_max_clamped].copy()
+        current_detections = []
+        for i in range(1, num_labels):
+            if stats[i, cv2.CC_STAT_AREA] >= min_noise_area_threshold:
+                current_detections.append({
+                    'centroid': centroids[i],
+                    'bbox': (stats[i, cv2.CC_STAT_LEFT], stats[i, cv2.CC_STAT_TOP],
+                             stats[i, cv2.CC_STAT_WIDTH], stats[i, cv2.CC_STAT_HEIGHT]),
+                    'area': stats[i, cv2.CC_STAT_AREA],
+                    'label_id': i
+                })
 
-        current_frame_components_info = []  # 存储当前帧的连通分量信息
-
-        # 3. 在 ROI 区域内应用 HSV 过滤，并进行去噪
-        roi_img_for_processing = processed_img[roi_y_min_clamped:roi_y_max_clamped, \
-                                 roi_x_min_clamped:roi_x_max_clamped]
-
-        if roi_img_for_processing.size > 0:
-            hsv = cv2.cvtColor(roi_img_for_processing, cv2.COLOR_BGR2HSV)
-            hsv_mask = cv2.inRange(hsv, lower_hsv, upper_hsv)
-
-            # --- 3.1 先进行形态学开运算去噪 ---
-            # 有助于去除小亮点和连接断裂的区域，平滑边缘
-            denoised_mask_morph = cv2.morphologyEx(hsv_mask, cv2.MORPH_OPEN, morph_kernel, iterations=1)
-
-            # --- 3.2 再进行连通分量分析和面积过滤 ---
-            num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(denoised_mask_morph, connectivity=8)
-
-            # 创建一个用于最终显示的干净掩码
-            final_display_mask = np.zeros_like(denoised_mask_morph, dtype=np.uint8)
-
-            # 遍历所有连通分量（从标签 1 开始，标签 0 通常是背景）
-            for i in range(1, num_labels):
-                area = stats[i, cv2.CC_STAT_AREA]
-                if area >= min_noise_area_threshold:
-                    # 保留符合面积要求的连通分量
-                    final_display_mask[labels == i] = 255
-
-                    # --- 追踪连通分量信息 ---
-                    # 存储每个保留下来的连通分量的详细信息
-                    # 可以根据需要添加更多信息，例如轮廓等
-                    component_info = {
-                        'label': i,
-                        'area': area,
-                        'bbox': (stats[i, cv2.CC_STAT_LEFT], stats[i, cv2.CC_STAT_TOP],
-                                 stats[i, cv2.CC_STAT_WIDTH], stats[i, cv2.CC_STAT_HEIGHT]),
-                        'centroid': (centroids[i, 0], centroids[i, 1])
+        if not tracked_objects:
+            for det in current_detections:
+                is_right = det['centroid'][0] > roi_center_x_local
+                assigned_num = next_right_column_number if is_right else next_left_column_number
+                if is_right:
+                    next_right_column_number += 1
+                else:
+                    next_left_column_number += 1
+                tracked_objects[next_unique_id] = {
+                    'centroid': det['centroid'], 'color': COLORS[color_index % len(COLORS)],
+                    'missed_frames': 0, 'assigned_number': assigned_num,
+                    'velocity': np.array([0, -initial_vertical_movement]),
+                    'unique_id': next_unique_id, 'bbox': det['bbox'], 'label_id': det['label_id']
+                }
+                next_unique_id += 1;
+                color_index += 1;
+                global_component_counter += 1
+        else:
+            tracked_ids = list(tracked_objects.keys())
+            predicted_centroids = [tracked_objects[tid]['centroid'] + tracked_objects[tid]['velocity'] for tid in
+                                   tracked_ids]
+            cost_matrix = np.full((len(predicted_centroids), len(current_detections)), 1e6)
+            for t_idx, pred_cen in enumerate(predicted_centroids):
+                for d_idx, det in enumerate(current_detections):
+                    dist = np.linalg.norm(pred_cen - det['centroid'])
+                    if dist < max_distance_for_tracking: cost_matrix[t_idx, d_idx] = dist
+            row_ind, col_ind = linear_sum_assignment(cost_matrix)
+            new_tracked_objects = {}
+            matched_detection_indices = set()
+            for t_idx, d_idx in zip(row_ind, col_ind):
+                if cost_matrix[t_idx, d_idx] < max_distance_for_tracking:
+                    tid = tracked_ids[t_idx];
+                    detection = current_detections[d_idx];
+                    old_data = tracked_objects[tid]
+                    new_velocity = detection['centroid'] - old_data['centroid']
+                    updated_velocity = old_data['velocity'] * 0.5 + new_velocity * 0.5
+                    new_tracked_objects[tid] = {
+                        'centroid': detection['centroid'], 'color': old_data['color'], 'missed_frames': 0,
+                        'assigned_number': old_data['assigned_number'], 'velocity': updated_velocity,
+                        'unique_id': tid, 'bbox': detection['bbox'], 'label_id': detection['label_id']
                     }
-                    current_frame_components_info.append(component_info)
+                    matched_detection_indices.add(d_idx)
+            unmatched_track_ids = set(tracked_ids) - {tracked_ids[t_idx] for t_idx, d_idx in zip(row_ind, col_ind) if
+                                                      cost_matrix[t_idx, d_idx] < max_distance_for_tracking}
+            for tid in unmatched_track_ids:
+                obj = tracked_objects[tid];
+                obj['missed_frames'] += 1
+                if obj['missed_frames'] <= max_missed_frames:
+                    obj['centroid'] += obj['velocity'];
+                    new_tracked_objects[tid] = obj
+            unmatched_detection_indices = set(range(len(current_detections))) - matched_detection_indices
+            for d_idx in unmatched_detection_indices:
+                det = current_detections[d_idx];
+                is_right = det['centroid'][0] > roi_center_x_local
+                assigned_num = next_right_column_number if is_right else next_left_column_number
+                if is_right:
+                    next_right_column_number += 1
+                else:
+                    next_left_column_number += 1
+                new_tracked_objects[next_unique_id] = {
+                    'centroid': det['centroid'], 'color': COLORS[color_index % len(COLORS)], 'missed_frames': 0,
+                    'assigned_number': assigned_num, 'velocity': np.array([0, -initial_vertical_movement]),
+                    'unique_id': next_unique_id, 'bbox': det['bbox'], 'label_id': det['label_id']
+                }
+                next_unique_id += 1;
+                color_index += 1;
+                global_component_counter += 1
+            tracked_objects = new_tracked_objects
 
-            all_frames_components_info.append(current_frame_components_info)  # 存储当前帧所有连通分量信息
+        # --- 可视化 ---
+        processed_img = np.full(img.shape, 255, dtype=np.uint8)
+        colored_output_roi = np.zeros_like(roi_img)
+        for obj in tracked_objects.values():
+            if obj['missed_frames'] == 0:
+                colored_output_roi[labels == obj['label_id']] = obj['color']
+                (x, y, w, h) = obj['bbox'];
+                text_to_display = str(obj['assigned_number'])
+                text_x = int(x + w + 5);
+                text_y = int(y + h / 2)
+                if text_x + 50 > colored_output_roi.shape[1] and x - 50 > 0: text_x = int(x - 50)
+                cv2.putText(colored_output_roi, text_to_display, (text_x, text_y),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2, cv2.LINE_AA)
+        processed_img[roi_y_min:roi_y_max, roi_x_min:roi_x_max] = colored_output_roi
+        text_total_components = f"Detected in Total: {global_component_counter}"
+        cv2.putText(processed_img, text_total_components, (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2, cv2.LINE_AA)
 
-            # 4. 根据 final_display_mask 更新 processed_img
-            # 将 ROI 区域内，在 final_display_mask 中为 0 的像素设置为白色（背景色）
-            processed_img[roi_y_min_clamped:roi_y_max_clamped, \
-            roi_x_min_clamped:roi_x_max_clamped][final_display_mask == 0] = 255
-
-            # --- 可选：在图像上绘制连通分量信息，便于调试 ---
-            for comp in current_frame_components_info:
-                x, y, w_comp, h_comp = comp['bbox']
-                center_x, center_y = int(comp['centroid'][0]), int(comp['centroid'][1])
-                # 绘制矩形框
-                cv2.rectangle(processed_img[roi_y_min_clamped:roi_y_max_clamped, \
-                                            roi_x_min_clamped:roi_x_max_clamped], \
-                              (x, y), (x + w_comp, y + h_comp), (0, 255, 0), 2) # 绿色框
-                # 绘制中心点
-                cv2.circle(processed_img[roi_y_min_clamped:roi_y_max_clamped, \
-                                          roi_x_min_clamped:roi_x_max_clamped], \
-                           (center_x, center_y), 5, (0, 0, 255), -1) # 红色点
-
-        # 缩放图像到目标窗口大小
         resized = cv2.resize(processed_img, window_size)
 
+        # --- 写入视频帧 ---
+        if save_video and video_writer is not None:
+            video_writer.write(resized)
+
         cv2.imshow("Color Frame", resized)
-        key = cv2.waitKey(50)  # 50ms 显示每帧
-        if key == 27:  # 按 ESC 退出
+        key = cv2.waitKey(1)
+        if key == 27:
             break
+
+    # --- 循环结束后，释放资源 ---
+    if video_writer is not None:
+        video_writer.release()
+        print(f"视频已成功保存到: {output_path}")
+
     cv2.destroyAllWindows()
-    return all_frames_components_info  # 返回所有帧的连通分量信息
 
 
 def main():
-    # 你可以换成 speed_2_lst 或 speed_3_lst
+    # 确保你已经安装了scipy: pip install scipy
     selected_list = speed_1_lst
 
     for idx in selected_list:
         folder = datasets_path[idx]
-        print(f"Processing folder: {folder}")
+        print(f"正在处理文件夹: {folder}")
         image_list = get_sorted_png_files(folder)
         if not image_list:
-            print("[WARNING] No PNGs found.")
+            print("[警告] 未找到PNG图片。")
             continue
-        # 调用 visualize_images 并获取返回的连通分量信息
-        components_data = visualize_images(image_list)
-        # 此时 components_data 包含了每一帧所有符合条件的连通分量信息
-        # 你可以在这里对 components_data 进行进一步的分析或保存
-        print(f"Finished processing folder: {folder}. Collected components data for {len(components_data)} frames.")
-        # print("Example data for first frame:", components_data[0] if components_data else "No data")
+
+        # 为视频文件创建一个基于文件夹名的唯一名称
+        folder_name = os.path.basename(os.path.normpath(folder))
+        output_video_path = f"output_{folder_name}.mp4"
+
+        # 将视频录制开关和路径传递给处理函数
+        visualize_images(image_list, save_video=SAVE_VIDEO, output_path=output_video_path)
+
+        print(f"文件夹处理完毕: {folder}。")
 
 
 if __name__ == "__main__":

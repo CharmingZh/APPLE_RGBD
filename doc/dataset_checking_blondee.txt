@@ -15,6 +15,7 @@
 - 子目录: recording_20250107-160928：过曝；
 - 子目录: recording_20250107-161658：苹果出现堆积（末尾处）；
 - 子目录: recording_20250107-162344：过曝；
+- 子目录: recording_20250107-175040：苹果出现堆积（末尾处）；
 - 子目录: recording_20250107-180256：苹果出现堆积（末尾处）；
 - 子目录: recording_20250107-180458：苹果出现堆积；
 - 子目录: recording_20250107-181046：苹果出现堆积；
@@ -34,7 +35,7 @@
 
 # Valid
 
-01  10   ↑   Speed 1: 12
+01  10   ↑   Speed 1: 11
 02  11   ↑   Speed 2: 09
 03  12   ↑   Speed 3: 08
 04  13   ↑
@@ -53,24 +54,23 @@
 - 子目录: recording_20250107-161852 yj07v3
 - 子目录: recording_20250107-162139 yj08v1
 - 子目录: recording_20250107-162525 yj08v3
-- 子目录: recording_20250107-175040 yj09v1
-- 子目录: recording_20250107-175246 yj09v2
+- 子目录: recording_20250107-175246 yj09v2 #
 - 子目录: recording_20250107-175537 yj10v1
-- 子目录: recording_20250107-175758 yj10v2
+- 子目录: recording_20250107-175758 yj10v2 #
 - 子目录: recording_20250107-175936 yj10v3
 - 子目录: recording_20250107-180049 yj11v1
 - 子目录: recording_20250107-180705 yj12v1
-- 子目录: recording_20250107-180852 yj12v2
+- 子目录: recording_20250107-180852 yj12v2 #
 - 子目录: recording_20250107-181203 yj13v1
-- 子目录: recording_20250107-181933 yj14v2
+- 子目录: recording_20250107-181933 yj14v2 #
 - 子目录: recording_20250107-182312 yj15v1
-- 子目录: recording_20250107-182845 yj16v1
+- 子目录: recording_20250107-182845 yj16v1 ##
 - 子目录: recording_20250107-183526 yj17v2
 - 子目录: recording_20250107-183759 yj17v3
 - 子目录: recording_20250107-183958 yj18v1
 - 子目录: recording_20250107-184356 yj18v3
 - 子目录: recording_20250107-184500 yj19v1
-- 子目录: recording_20250107-184648 yj19v2
+- 子目录: recording_20250107-184648 yj19v2 ##
 - 子目录: recording_20250107-184859 yj19v3
 - 子目录: recording_20250107-185322 yj20v2
 
